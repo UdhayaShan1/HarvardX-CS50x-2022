@@ -1,4 +1,4 @@
--- All you know is that the theft took place on July 28, 2021 and that it took place on Humphrey Street.
+All you know is that the theft took place on July 28, 2021 and that it took place on Humphrey Street.
 
 -- Keep a log of any SQL queries you execute as you solve the mystery.
 
@@ -18,8 +18,8 @@ SELECT person_id from bank_accounts where account_number in (SELECT account_numb
 -- person ids
 
 SELECT name from people where id in (SELECT person_id from bank_accounts where account_number in (SELECT account_number from atm_transactions where year = '2021' and month = '7' and day = '28' and atm_location like '%Leggett%' and transaction_type like "%withdraw%"));
+
 -- names of those who withdrew in morning
- name   |
 
 -- Main suspects
 --| Kenny   |
@@ -54,7 +54,7 @@ SELECT * from phone_calls where caller in (SELECT phone_number from people where
 
 SELECT * from phone_calls where caller in (SELECT phone_number from people where name like "%Diana%") and year = '2021' and month = '7' and day = '28';
 -- diana has only one call
---Only Bruce has two calls, Bruce is thief
+--Only Bruce >=2 calls, Bruce is thief
 
 SELECT receiver from phone_calls where caller in (SELECT phone_number from people where name like "%Bruce%") and year = '2021' and month = '7' and day = '28';
 
